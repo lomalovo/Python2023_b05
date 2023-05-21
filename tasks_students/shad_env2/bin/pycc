@@ -1,0 +1,3 @@
+#!/Users/matvey/Desktop/tasks_students/shad_env2/bin/python
+from numba.pycc import main
+main()
