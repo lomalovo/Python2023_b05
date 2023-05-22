@@ -6,7 +6,7 @@ def caesar_encrypt(message: str, n: int) -> str:
     :return: encrypted message
     """
     answer: str = ""
-    letters:list[str] = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    letters: list[str] = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
     for letter in message:
         if letter == " ":
             answer += " "

@@ -15,6 +15,7 @@ def input_(prompt: tp.Optional[str] = None,
     `inp` and `out` arguments are optional and should default to `sys.stdin`
     and `sys.stdout` respectively.
     """
+    a: tp.Any
     if prompt is not None:
         if out is not None:
             out.write(prompt)

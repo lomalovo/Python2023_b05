@@ -1,16 +1,16 @@
 import sys
 import math
-from typing import Any, Optional
+import typing as tp
 
 PROMPT = '>>> '
 
 
-def run_calc(context: Optional[dict[str, Any]] = None) -> None:
+def run_calc(context: tp.Optional[dict[str, tp.Any]] = None) -> None:
     """Run interactive calculator session in specified namespace"""
     while True:
         sys.stdout.write(PROMPT)
         try:
-            expr = sys.stdin.readline()
+            expr: tp.Any = sys.stdin.readline()
         except EOFError:
             break
         try:

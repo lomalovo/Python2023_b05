@@ -11,7 +11,7 @@ def merge(input_streams: tp.Sequence[tp.IO[bytes]], output_stream: tp.IO[bytes])
     """
     seq: list[list[int]] = []
     for stream in input_streams:
-        cur_list = []
+        cur_list: tp.Any = []
         for line in stream.readlines():
             cur_list.append(line.decode('utf-8'))
         seq.append(list(map(int, cur_list)))

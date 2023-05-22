@@ -7,7 +7,7 @@ def merge(seq: tp.Sequence[tp.Sequence[int]]) -> list[int]:
     :param seq: sequence of sorted sequences
     :return: merged sorted list
     """
-    queue: heapq = []
+    queue: tp.Any = []
     for lst in seq:
         for elem in lst:
             heapq.heappush(queue, elem)

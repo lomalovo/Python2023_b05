@@ -18,7 +18,7 @@ def calc_squares_simple(bound: int) -> tp.List[int]:
     :param bound: positive upper bound for range
     :return: list of squared numbers
     """
-    squares = []
+    squares: tp.Any = []
     for i in range(bound):
         squares.append(very_slow_function(i))
     return squares
@@ -30,12 +30,12 @@ def calc_squares_multithreading(bound: int) -> tp.List[int]:
     :param bound: positive upper bound for range
     :return: list of squared numbers
     """
-    squares = []
+    squares: tp.Any = []
 
-    def calculate_square(num):
+    def calculate_square(num: tp.Any) -> tp.Any:
         squares.append(very_slow_function(num))
 
-    threads = []
+    threads: tp.Any = []
     for i in range(bound):
         thread = threading.Thread(target=calculate_square, args=(i,))
         threads.append(thread)
@@ -53,8 +53,8 @@ def calc_squares_multiprocessing(bound: int) -> tp.List[int]:
     :param bound: positive upper bound for range
     :return: list of squared numbers
     """
-    pool = multiprocessing.Pool()
-    squares = pool.map(very_slow_function, range(bound))
+    pool: tp.Any = multiprocessing.Pool()
+    squares: tp.Any = pool.map(very_slow_function, range(bound))
     pool.close()
     pool.join()
     return squares

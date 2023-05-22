@@ -1,5 +1,6 @@
 from types import FunctionType
 from typing import Any
+import typing as tp
 
 CO_VARARGS = 4
 CO_VARKEYWORDS = 8
@@ -22,23 +23,23 @@ def bind_args(func: FunctionType, *args: Any, **kwargs: Any) -> dict[str, Any]:
              raise TypeError with one of `ERR_*` error descriptions otherwise
     """
 
-    code = func.__code__
-    co_flags = code.co_flags
-    co_varnames = code.co_varnames
-    co_argcount = code.co_argcount
-    co_posonlyargcount = code.co_posonlyargcount
-    co_kwonlyargcount = code.co_kwonlyargcount
+    code: tp.Any = func.__code__
+    co_flags: tp.Any = code.co_flags
+    co_varnames: tp.Any = code.co_varnames
+    co_argcount: tp.Any = code.co_argcount
+    co_posonlyargcount: tp.Any = code.co_posonlyargcount
+    co_kwonlyargcount: tp.Any = code.co_kwonlyargcount
 
-    num_args = len(args)
-    num_kwargs = len(kwargs)
+    num_args: tp.Any = len(args)
+    num_kwargs: tp.Any = len(kwargs)
 
-    is_varargs = co_flags & CO_VARARGS
-    is_varkeywords = co_flags & CO_VARKEYWORDS
+    is_varargs: tp.Any = co_flags & CO_VARARGS
+    is_varkeywords: tp.Any = co_flags & CO_VARKEYWORDS
 
-    defaults = func.__defaults__ or ()
-    defaults_count = len(defaults)
-    kwdefaults = func.__kwdefaults__ or ()
-    kwdefaults_count = len(kwdefaults)
+    defaults: tp.Any = func.__defaults__ or ()
+    defaults_count: tp.Any = len(defaults)
+    kwdefaults: tp.Any = func.__kwdefaults__ or ()
+    kwdefaults_count: tp.Any = len(kwdefaults)
 
     if co_kwonlyargcount != 0:
         if num_kwargs > co_kwonlyargcount:
@@ -56,7 +57,7 @@ def bind_args(func: FunctionType, *args: Any, **kwargs: Any) -> dict[str, Any]:
     if num_kwargs + num_args + defaults_count < co_argcount:
         raise TypeError(ERR_MISSING_POS_ARGS)
 
-    bound_args = {}
+    bound_args: tp.Any = {}
 
     for i, arg_name in enumerate(co_varnames):
         if i < num_args:

@@ -9,5 +9,5 @@ def reformat_git_log(inp: tp.IO[str], out: tp.IO[str]) -> None:
     """
     for line in inp.readlines():
         sha, *a, message = line.split("\t")
-        answer = '{}{:.>74}'.format(sha[:7], message)
+        answer: tp.Any  = '{}{:.>74}'.format(sha[:7], message)
         out.write(answer)

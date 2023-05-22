@@ -9,7 +9,7 @@ def merge_iterative(lst_a: list[int], lst_b: list[int]) -> list[int]:
     it_a: int = 0
     it_b: int = 0
     len_b: int = len(lst_b)
-    answer: list = []
+    answer: list[int] = []
     while it_a < len_a and it_b < len_b:
         if lst_a[it_a] < lst_b[it_b]:
             answer.append(lst_a[it_a])

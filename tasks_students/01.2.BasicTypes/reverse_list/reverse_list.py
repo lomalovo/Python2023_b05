@@ -6,7 +6,7 @@ def reverse_iterative(lst: list[int]) -> list[int]:
     """
     it_l: int = 0
     len_l: int = len(lst) - 1
-    answer: list = []
+    answer: list[int] = []
     while it_l <= len_l:
         answer.append(lst[len_l])
         len_l -= 1

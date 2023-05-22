@@ -6,7 +6,7 @@ def get_squares(elements: list[int]) -> list[int]:
     :param elements: list with integer values
     :return: list with squared values
     """
-    answer: list = []
+    answer: list[int] = []
     for i in range(len(elements)):
         answer.append(elements[i] ** 2)
     return answer
@@ -51,7 +51,7 @@ def get_every_second_element(elements: list[int]) -> list[int]:
     :param elements: list with integer values
     :return: list with each second element of list
     """
-    answer: list = elements[:]
+    answer: list[int] = elements[:]
     return answer[1::2]
 
 

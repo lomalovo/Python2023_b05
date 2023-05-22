@@ -11,16 +11,16 @@ def get_changed_dirs(git_path: Path, from_commit_hash: str, to_commit_hash: str)
     :param to_commit_hash: hash of commit to do diff to
     :return: sequence of changed directories between specified commits
     """
-    result = subprocess.run(
+    result: tp.Any = subprocess.run(
         ['git', '-C', str(git_path), 'diff', '--name-only', '--diff-filter=d', from_commit_hash, to_commit_hash],
         capture_output=True,
         text=True
     )
-    changed_files = result.stdout.splitlines()
-    changed_dirs = set()
+    changed_files: tp.Any = result.stdout.splitlines()
+    changed_dirs: tp.Any = set()
 
     for file in changed_files:
-        file_path = git_path / file
+        file_path: tp.Any = git_path / file
         changed_dirs.add(file_path.parent)
 
     return changed_dirs

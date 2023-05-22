@@ -20,4 +20,7 @@ def RLE(s: str) -> str:
     return "".join(answer)
 
 
-print(RLE(input()))
+assert RLE('') == ''
+assert RLE('aaabbc') == 'a3b2c'
+assert RLE('aaasdssassasdabbc') == 'a3sds2as2asdab2c'
+
