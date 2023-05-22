@@ -13,7 +13,7 @@ def is_palindrome(s):
     return True
 
 
-print(is_palindrome('a b c s s c ba'))
-print(is_palindrome(''))
-print(is_palindrome('a.b c.s s c ba'))
-print(is_palindrome('a b c s s ba'))
+assert is_palindrome('a b c s s c ba') is True
+assert is_palindrome('') is True
+assert is_palindrome('a.b c.s s c ba') is True
+assert is_palindrome('a b c s s ba') is False

@@ -23,4 +23,6 @@ def square_sorted_array(list_: list[int]) -> list[int]:
     return result
 
 
-print(square_sorted_array([-4, -2, 0, 2, 3, 5]))
+assert square_sorted_array([-4, -2, 0, 2, 3, 5]) == [0, 4, 4, 9, 16, 25]
+assert square_sorted_array([-2]) == [4]
+assert square_sorted_array([]) == []

@@ -14,3 +14,10 @@ def is_mountain(arr: list[int]) -> bool:
         return True
 
     return False
+
+
+assert is_mountain([-3, -2, -1, 0, 1, 1, 1, 1, -5]) is True
+assert is_mountain([-3, -2, -1, 0, -1, 1, 1, 1, -5]) is False
+assert is_mountain([-3, -2, -1, 0, 1, 1, 1, 1, 1]) is False
+assert is_mountain([-2, -2, -1, 0, 1, 1, 1, 1, -5]) is True
+assert is_mountain([1, 1, 1, 0]) is False

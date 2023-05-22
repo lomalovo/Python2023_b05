@@ -19,5 +19,11 @@ def space_into_perc20(list_: list[tp.Union[str, None]]) -> None:
 
 
 a = ['a', 'a', ' ', 'a', ' ', None, None, None, None]
+b = []
+c = [' ', None, None]
 space_into_perc20(a)
-print(a)
+space_into_perc20(b)
+space_into_perc20(c)
+assert a == ['a', 'a', '%', '2', '0', 'a', '%', '2', '0']
+assert b == []
+assert c == ['%', '2', '0']

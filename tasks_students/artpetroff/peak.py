@@ -18,4 +18,6 @@ def find_peak_element(list_: list[int]) -> tp.Union[int, None]:
     return list_[left]
 
 
-print(find_peak_element([1, 2, 7, 4, 6, 3, 2, 1]))
+assert find_peak_element([1, 2, 7, 4, 6, 3, 2, 1]) == 7 or 6
+assert find_peak_element([1, 2, 3, 4, 5, 6, 7, 8]) == 8
+assert find_peak_element([1]) == 1
