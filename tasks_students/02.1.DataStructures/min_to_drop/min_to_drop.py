@@ -9,6 +9,6 @@ def get_min_to_drop(seq: tp.Sequence[tp.Any]) -> int:
     """
     if not seq:
         return 0
-    cnt: Counter = Counter(seq)
+    cnt: tp.Any = Counter(seq)
     maxKey: int = max(cnt.values())
     return len(seq) - maxKey

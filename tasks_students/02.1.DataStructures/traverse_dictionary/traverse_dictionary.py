@@ -9,9 +9,9 @@ def traverse_dictionary_immutable(
     :param prefix: prefix for key used for passing total path through recursion
     :return: list with pairs: (full key from root to leaf joined by ".", value)
     """
-    result = []
+    result: tp.Any = []
     for k, v in dct.items():
-        new_prefix = f"{prefix}.{k}" if prefix else k
+        new_prefix: tp.Any = f"{prefix}.{k}" if prefix else k
         if isinstance(v, dict):
             result.extend(traverse_dictionary_immutable(v, new_prefix))
         else:
@@ -30,7 +30,7 @@ def traverse_dictionary_mutable(
     :return: None
     """
     for k, v in dct.items():
-        new_prefix = f"{prefix}.{k}" if prefix else k
+        new_prefix: tp.Any = f"{prefix}.{k}" if prefix else k
         if isinstance(v, dict):
             traverse_dictionary_mutable(v, result, new_prefix)
         else:
@@ -39,13 +39,13 @@ def traverse_dictionary_mutable(
 
 def traverse_dictionary_iterative(
         dct: tp.Mapping[str, tp.Any]
-        ) -> list[tuple[str, int]]:
+) -> list[tuple[str, int]]:
     """
     :param dct: dictionary of undefined depth with integers or other dicts as leaves with same properties
     :return: list with pairs: (full key from root to leaf joined by ".", value)
     """
-    stack = [(dct.items(), "")]
-    result = []
+    stack: tp.Any = [(dct.items(), "")]
+    result: tp.Any = []
     while stack:
         items, prefix = stack.pop()
         for k, v in items:

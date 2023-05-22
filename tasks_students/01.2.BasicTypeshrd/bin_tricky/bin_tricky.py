@@ -9,13 +9,16 @@ def find_median(nums1: tp.Sequence[int], nums2: tp.Sequence[int]) -> float:
     :return: middle value if sum of sequences' lengths is odd
              average of two middle values if sum of sequences' lengths is even
     """
-    m, n = len(nums1), len(nums2)
+    m: tp.Any = len(nums1)
+    n: tp.Any = len(nums2)
     if m > n:
         nums1, nums2, m, n = nums2, nums1, n, m
-    i_min, i_max, half_len = 0, m, (m + n + 1) // 2
+    i_min: int = 0
+    i_max: int = m
+    half_len: int = (m + n + 1) // 2
     while i_min <= i_max:
-        i = (i_min + i_max) // 2
-        j = half_len - i
+        i: int = (i_min + i_max) // 2
+        j: int = half_len - i
         if i < m and nums2[j - 1] > nums1[i]:
             i_min = i + 1
         elif i > 0 and nums1[i - 1] > nums2[j]:
@@ -36,3 +39,4 @@ def find_median(nums1: tp.Sequence[int], nums2: tp.Sequence[int]) -> float:
             else:
                 min_of_right = min(nums1[i], nums2[j])
             return float((max_of_left + min_of_right) / 2)
+    return 0.0

@@ -1,7 +1,7 @@
 import typing as tp
 
 
-def get_unique_page_ids(records: list[tp.Mapping[str, tp.Any]]) -> set[int]:
+def get_unique_page_ids(records: list[tp.Mapping[str, tp.Any]]) -> tp.Any:
     """
     Get unique web pages visited
     :param records: records of hit-log
@@ -10,21 +10,21 @@ def get_unique_page_ids(records: list[tp.Mapping[str, tp.Any]]) -> set[int]:
     return {x.get("PageID") for x in records}
 
 
-def get_unique_page_ids_visited_after_ts(records: list[tp.Mapping[str, tp.Any]], ts: int) -> set[int]:
+def get_unique_page_ids_visited_after_ts(records: tp.Any, ts: int) -> tp.Any:
     """
     Get unique web pages visited after some timestamp (not included)
     :param records: records of hit-log
     :param ts: timestamp
     :return: Unique web pages visited in hit-log after some timestamp
     """
-    return {x.get("PageID") for x in records if x.get("EventTime") > ts}
+    return {x.get("PageID") for x in records if int(x.get("EventTime")) > ts}
 
 
 def get_unique_user_ids_visited_page_after_ts(
-        records: list[tp.Mapping[str, tp.Any]],
+        records: tp.Any,
         ts: int,
         page_id: int
-) -> set[int]:
+) -> tp.Any:
     """
     Get unique users visited given web page after some timestamp (not included)
     :param records: records of hit-log
@@ -53,7 +53,7 @@ DEFAULT_REGION_ID = 100500
 
 def get_region_ids_with_none_replaces_by_default(
         records: list[tp.Mapping[str, tp.Any]]
-) -> list[int]:
+) -> tp.Any:
     """
     Extract visited regions with order preservation. If region not defined, replace it by default region id
     :param records: records of hit-log
@@ -64,7 +64,7 @@ def get_region_ids_with_none_replaces_by_default(
 
 def get_region_id_if_not_none(
         records: list[tp.Mapping[str, tp.Any]]
-) -> list[int]:
+) -> tp.Any:
     """
     Extract visited regions if they are defined with order preservation
     :param records: records of hit-log

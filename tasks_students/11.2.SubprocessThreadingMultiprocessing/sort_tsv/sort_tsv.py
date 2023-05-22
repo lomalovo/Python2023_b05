@@ -1,5 +1,6 @@
 import subprocess
 from pathlib import Path
+import typing as tp
 
 
 def python_sort(file_in: Path, file_out: Path) -> None:
@@ -9,8 +10,8 @@ def python_sort(file_in: Path, file_out: Path) -> None:
     :param file_out: tsv file to write to
     """
     with open(file_in, 'r') as f_in, open(file_out, 'w') as f_out:
-        lines = f_in.readlines()
-        sorted_lines = sorted(lines, key=lambda x: (int(x.split('\t')[1]), x.split('\t')[0]))
+        lines: tp.Any = f_in.readlines()
+        sorted_lines: tp.Any = sorted(lines, key=lambda x: (int(x.split('\t')[1]), x.split('\t')[0]))
         f_out.writelines(sorted_lines)
 
 
